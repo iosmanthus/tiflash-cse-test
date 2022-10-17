@@ -1,0 +1,5 @@
+[keyspace]
+pre-alloc = ["keyspace_a", "keyspace_b"]
+
+[schedule]
+merge-schedule-limit = 0

@@ -1,0 +1,59 @@
+tmp_path = "/home/iosmanthus/.tiup/tiflash-cse-test/tiflash/tmp"
+path = "/home/iosmanthus/.tiup/tiflash-cse-test/tiflash/data"
+mark_cache_size = 5368709120
+tcp_port = 9000
+listen_host = "0.0.0.0"
+keyspace_name = "keyspace_a"
+http_port = 8123
+display_name = "TiFlash"
+default_profile = "default"
+[users]
+	[users.readonly]
+		quota = "default"
+		profile = "readonly"
+		password = ""
+		[users.readonly.networks]
+			ip = "::/0"
+	[users.default]
+		quota = "default"
+		profile = "default"
+		password = ""
+		[users.default.networks]
+			ip = "::/0"
+[raft]
+	pd_addr = "127.0.0.1:2379"
+[profiles]
+	[profiles.readonly]
+		readonly = 1
+	[profiles.default]
+		use_uncompressed_cache = 0
+		max_memory_usage = 0
+		load_balancing = "random"
+[logger]
+	size = "1000M"
+	log = "/home/iosmanthus/.tiup/tiflash-cse-test/tiflash/log/tiflash.log"
+	level = "debug"
+	errorlog = "/home/iosmanthus/.tiup/tiflash-cse-test/tiflash/log/tiflash_error.log"
+	count = 20
+[flash]
+	tidb_status_addr = "127.0.0.1:10080"
+	service_addr = "127.0.0.1:3930"
+	[flash.proxy]
+		config = "/home/iosmanthus/.tiup/tiflash-cse-test/tiflash-learner.toml"
+	[flash.flash_cluster]
+		update_rule_interval = 5
+		master_ttl = 60
+		log = "/home/iosmanthus/.tiup/tiflash-cse-test/tiflash/log/tiflash_cluster_manager.log"
+		refresh_interval = 20
+		cluster_manager_path = "/home/iosmanthus/.tiup/components/tiflash/v6.2.0/tiflash/flash_cluster_manager"
+[status]
+	metrics_port = 8234
+[quotas]
+	[quotas.default]
+		[quotas.default.interval]
+			result_rows = 0
+			read_rows = 0
+			queries = 0
+			execution_time = 0
+			errors = 0
+			duration = 3600

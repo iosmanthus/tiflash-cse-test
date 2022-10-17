@@ -1,0 +1,32 @@
+
+log-file = "/home/iosmanthus/.tiup/tiflash-cse-test/tiflash/log/tiflash_tikv.log"
+
+[rocksdb]
+wal-dir = ""
+max-open-files = 256
+
+[security]
+ca-path = ""
+cert-path = ""
+key-path = ""
+
+[server]
+addr = "0.0.0.0:20170"
+advertise-addr = "127.0.0.1:20170"
+engine-addr = "127.0.0.1:3930"
+status-addr = "0.0.0.0:20292"
+advertise-status-addr = "127.0.0.1:20292"
+
+[storage]
+data-dir = "/home/iosmanthus/.tiup/tiflash-cse-test/tiflash/flash"
+
+[raftdb]
+max-open-files = 256
+
+[dfs]
+prefix = "local-cluster"
+s3-endpoint = "http://127.0.0.1:19000"
+s3-key-id = "minioadmin"
+s3-secret-key = "minioadmin"
+s3-bucket = "cse"
+s3-region = "local"
